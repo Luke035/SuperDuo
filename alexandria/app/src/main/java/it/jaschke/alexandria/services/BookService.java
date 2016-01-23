@@ -5,8 +5,10 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Handler;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -198,6 +200,19 @@ public class BookService extends IntentService {
 
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Error ", e);
+        } catch(NullPointerException e) {
+            Handler h = new Handler(getApplicationContext().getMainLooper());
+            //Do not add nothing, maybe due to lack of connectivity
+            if(!Utility.isDeviceConnected(getApplicationContext())){
+                h.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getBaseContext(), getString(R.string.lack_of_connectivity), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                //Toast.makeText(getBaseContext(), getString(R.string.lack_of_connectivity), Toast.LENGTH_SHORT).show();
+            }
+
         }
     }
 
