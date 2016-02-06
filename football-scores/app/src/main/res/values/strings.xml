@@ -41,4 +41,6 @@
     <string name="home_team_description">Home team: </string>
     <string name="away_team_description">Away team: </string>
     <string name="score_description">Final score: </string>
+    <string name="widget_label">Football scores label</string>
+    <string name="VS">VS</string>
 </resources>
