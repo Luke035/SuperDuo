@@ -33,17 +33,6 @@
                         android:layout_weight="2"
                         android:hint="Placeholder text" />
 
-                    <ImageButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:contentDescription="@string/back_button"
-                        android:id="@+id/backButton"
-                        android:onClick="goBack"
-                        android:src="@drawable/ic_action_undo"
-                        style="?android:attr/buttonBarButtonStyle"
-                        android:layout_gravity="right|top"
-                        android:layout_weight="1" />
-
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
