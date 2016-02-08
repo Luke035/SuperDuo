@@ -121,8 +121,9 @@ public class BookDetail extends Fragment implements LoaderManager.LoaderCallback
         String[] authorsArr;
         if(authors == null || authors.equals("")){
             authorsArr = new String[]{getString(R.string.no_author)};
+        }else{
+            authorsArr = authors.split(",");
         }
-        authorsArr = authors.split(",");
         ((TextView) rootView.findViewById(R.id.authors)).setLines(authorsArr.length);
         ((TextView) rootView.findViewById(R.id.authors)).setText(authors.replace(",","\n"));
         String imgUrl = data.getString(data.getColumnIndex(AlexandriaContract.BookEntry.IMAGE_URL));
